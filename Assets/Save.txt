@@ -1,0 +1,22 @@
+{
+  "$type": "GameSerializer+GameData, Assembly-CSharp",
+  "CurrentScene": "SampleScene",
+  "Scenes": {
+    "$type": "System.Collections.Generic.List`1[[GameSerializer+SceneData, Assembly-CSharp]], mscorlib",
+    "$values": [
+      {
+        "$type": "GameSerializer+SceneData, Assembly-CSharp",
+        "Scene": "SampleScene",
+        "Props": {
+          "$type": "System.String[], mscorlib",
+          "$values": [
+            "{\"PrefabGUID\":\"72e0508397c38474a9872a3b5f34599f\",\"ID\":\"\",\"Pos\":{\"x\":1.7216708660125733,\"y\":0.6027538776397705,\"z\":-7.174042701721191},\"Rot\":{\"x\":0.0,\"y\":-0.1856665462255478,\"z\":0.0,\"w\":0.9826128482818604},\"CmpsData\":[\"{\\r\\n  \\\"$type\\\": \\\"BlockConfig+Cubanandre, Assembly-CSharp\\\",\\r\\n  \\\"c\\\": 333,\\r\\n  \\\"v\\\": 111.0,\\r\\n  \\\"ww\\\": false\\r\\n}\"]}",
+            "{\"PrefabGUID\":\"72e0508397c38474a9872a3b5f34599f\",\"ID\":\"\",\"Pos\":{\"x\":1.7216708660125733,\"y\":1.6027538776397706,\"z\":-7.174042701721191},\"Rot\":{\"x\":0.0,\"y\":0.18566647171974183,\"z\":0.0,\"w\":-0.9826129078865051},\"CmpsData\":[\"{\\r\\n  \\\"$type\\\": \\\"BlockConfig+Cubanandre, Assembly-CSharp\\\",\\r\\n  \\\"c\\\": 0,\\r\\n  \\\"v\\\": 0.0,\\r\\n  \\\"ww\\\": false\\r\\n}\"]}",
+            "{\"PrefabGUID\":\"72e0508397c38474a9872a3b5f34599f\",\"ID\":\"\",\"Pos\":{\"x\":1.7216708660125733,\"y\":2.6027538776397707,\"z\":-7.174042701721191},\"Rot\":{\"x\":0.0,\"y\":0.18566648662090302,\"z\":0.0,\"w\":-0.9826129078865051},\"CmpsData\":[\"{\\r\\n  \\\"$type\\\": \\\"BlockConfig+Cubanandre, Assembly-CSharp\\\",\\r\\n  \\\"c\\\": 123213,\\r\\n  \\\"v\\\": 321322.0,\\r\\n  \\\"ww\\\": true\\r\\n}\"]}"
+          ]
+        }
+      }
+    ]
+  },
+  "UnlinkedProps": null
+}

@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 0a2e921feff572243b6fcbb4c4c5a9a5
+  m_SerializeEntries:
+  - m_GUID: 72e0508397c38474a9872a3b5f34599f
+    m_Address: Assets/GraphicContent/BuildBlockPreset/BuildBlocksPresetPrefab.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fc321ceb65c598742b1175d4c2ed18ac
+    m_Address: Assets/Config/Ore (1).prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1adddb167c7fd1c4f9b62dc918a8771b
+    m_Address: Assets/Config/Ore (1) 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: da02465645d8a7d499bb689e52286f62
+    m_Address: Assets/UI/BuildBlocksCube_icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f7ee849c6399b7e488ba74f7e5987570
+    m_Address: Assets/UI/BuildBlocksRoofHorizontal_icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3d00406960a1b374b82575d8af148e07
+    m_Address: Assets/UI/BuildBlocksWall_icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ddcd6a3e1a17e824ba7acf43f241b07e
+    m_Address: Assets/UI/BuildBlocksRoofAngle_icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1f18ed2841e94d041a99f74a8b35d69a
+    m_Address: Assets/UI/BuildBlocksFoundation_icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 573224ae4ea562449947fffc858f1523
+    m_Address: Assets/UI/BuildBlocksFloor_icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c1497117ca6c7cb46801dc315c302336
+    m_Address: Assets/UI/BuildBlocksWindow_icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dab1e26ecc9d7b44c9da3fa154b1ebce
+    m_Address: Assets/UI/Inventory/Slot_Background_Frame.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 5aa0661b9d4bfb54881ce760deb322b9, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: dfa10f46be75c3e4bb0b2e0af494d065, type: 2}
+    - {fileID: 11400000, guid: 687365bbac5b71046a7a971f5b5808b3, type: 2}

@@ -11,6 +11,13 @@ public class Player : MonoBehaviour
     public SmallInventory OtherInventory;
     public float RayLeight = 2;
 
+    public Transform HandPose;
+
+    public Animator animator;
+
+    float _x = 0;
+    float _y = 0;
+    public float AnimBlendSpeed = 10;
 
     private void Awake()
     {
@@ -28,6 +35,14 @@ public class Player : MonoBehaviour
         {
             Inventory.gameObject.SetActive(true);
         }
+
+        _x = Mathf.Lerp(_x, Input.GetAxis("Mouse X"), Time.deltaTime * AnimBlendSpeed);
+        _y = Mathf.Lerp(_y, Input.GetAxis("Mouse Y"), Time.deltaTime * AnimBlendSpeed);
+
+        animator.SetFloat("x", _x);
+        animator.SetFloat("y", _y);
+
+
     }
 
     public void CloseOtherInventory()

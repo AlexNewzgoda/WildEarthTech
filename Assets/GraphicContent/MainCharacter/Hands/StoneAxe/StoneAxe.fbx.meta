@@ -75,14 +75,21 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.3623188
+      - time: 0
+        functionName: SoundOn
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1a9b505eefff22749b9eff88d794df36, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.47084597
         functionName: Hit
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 1a9b505eefff22749b9eff88d794df36, type: 3}
         floatParameter: 0
         intParameter: 1
         messageOptions: 0
-      - time: 0.5253623
+      - time: 0.60546565
         functionName: Hit
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 1a9b505eefff22749b9eff88d794df36, type: 3}

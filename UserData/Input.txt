@@ -15,6 +15,6 @@
   "Slot7": 55,
   "Slot8": 56,
   "Slot9": 57,
-  "Sensitivity": 1,
-  "Out": 27
+  "Out": 27,
+  "Sensitivity": 1
 }

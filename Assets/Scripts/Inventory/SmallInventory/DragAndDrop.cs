@@ -69,7 +69,7 @@ public class DragAndDrop : MonoBehaviour
                 itempos = su.CurrentSmallInventory.ReleaseItem(su);
                 su.transform.SetParent(GlobalCanvas.globalCanvas.transform);
                 item = su;
-                break;
+                return;
             }
         }
     }
@@ -97,6 +97,13 @@ public class DragAndDrop : MonoBehaviour
             if (inventory.ItemSetFromDrag(item, itemslot, itempos) == false)
             {
                 DropItemOut();
+            }
+            else
+            {
+                if(inventory.frame != null)
+                {
+                    inventory.frame.UpdateEmptyToUse();
+                }
             }
             ClearGrab();
         }

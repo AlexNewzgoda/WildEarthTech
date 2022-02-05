@@ -6,11 +6,14 @@ public class FAFrame : MonoBehaviour
 {
     public SmallInventory fastaccess;
 
-    int index = 0;
+    public int index = 0;
     int oldselect = 0;
+
+    bool EmptySlot = true;
 
     void Update()
     {
+        oldselect = index;
         index += (int)Input.GetAxis("Mouse ScrollWheel");
         if(index > 8)
         {
@@ -56,27 +59,44 @@ public class FAFrame : MonoBehaviour
         {
             index = 8;
         }
-
-
         transform.position = fastaccess.itemSlots[index].transform.position;
+
         UpdateUseItem();
+
+        if (fastaccess.smallItems[index] == null)
+        {
+            EmptySlot = true;
+        }
+
+    }
+
+    public void UpdateEmptyToUse()
+    {
+        if (Player.player.itemActive == null)
+        {
+            if (fastaccess.smallItems[index] != null)
+            {
+                fastaccess.smallItems[index].OnUse();
+            }
+        }
+     
     }
 
     void UpdateUseItem()
     {
-        if(index != oldselect)
+
+        if (index != oldselect)
         {
             if(fastaccess.smallItems[oldselect] != null)
             {
                 fastaccess.smallItems[oldselect].OnDeUse();
                 oldselect = index;
             }
+            if (fastaccess.smallItems[index] != null)
+            {
+                fastaccess.smallItems[index].OnUse();
+            }
         }
-        if (fastaccess.smallItems[index] != null)
-        {
-            fastaccess.smallItems[index].OnUse();
-        }
-        
     }
 
 }

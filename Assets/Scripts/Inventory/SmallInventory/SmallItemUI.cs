@@ -23,9 +23,15 @@ public class SmallItemUI : MonoBehaviour
 
     public void OnUse()
     {
-
+        smallItemObj.OnSelectUdate();
     }
     public void OnDeUse()
+    {
+        smallItemObj.OnDeselect();
+        Debug.Log("2");
+    }
+
+    public virtual void UpdateUIItem()
     {
 
     }

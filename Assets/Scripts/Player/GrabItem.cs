@@ -21,38 +21,53 @@ public class GrabItem : MonoBehaviour
     {
         if(GrabedItem == null)
         {
-            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, GrabLeight, layerMask))
+            if (Input.GetKeyDown(InputSettings.key_Use) && CursorController.IsActive == false)
             {
-               
-
-                BigItem item = hit.transform.GetComponent<BigItem>();
-                SmallItemObj smallItem = hit.transform.GetComponent<SmallItemObj>();
-
-                if (item != null)
+                if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, GrabLeight, layerMask))
                 {
-                    if (Input.GetKeyDown(InputSettings.key_Use))
+
+
+                    BigItem item = hit.transform.GetComponent<BigItem>();
+                    SmallItemObj smallItem = hit.transform.GetComponent<SmallItemObj>();
+
+                    if (item != null)
                     {
-                        if(item.CurrentStorage != null)
+                        if (Input.GetKeyDown(InputSettings.key_Use))
                         {
-                            item.CurrentStorage.Release(item);
-                        }
-                        item.SelfCollider.enabled = false;
-                        item.SelfRigidbody.isKinematic = true;
-                        item.transform.SetParent(this.transform);
-                        item.isGrabbed = true;
-                        
-                        GrabedItem = item;
-                    }
-                }
+                            if (item.CurrentStorage != null)
+                            {
+                                item.CurrentStorage.Release(item);
+                            }
+                            item.SelfCollider.enabled = false;
+                            item.SelfRigidbody.isKinematic = true;
+                            item.transform.SetParent(this.transform);
+                            item.isGrabbed = true;
 
-                if(smallItem != null)
-                {
-                    if (Input.GetKeyDown(InputSettings.key_Use))
+                            GrabedItem = item;
+                        }
+                    }
+
+                    if (smallItem != null)
                     {
-                        Player.player.Inventory.ItemSetInFromUp(smallItem);
+
+                        if (smallItem.isUsability == true)
+                        {
+                            if (Player.player.FastAccess.ItemSetInFromUp(smallItem) == false)
+                            {
+                                Player.player.Inventory.ItemSetInFromUp(smallItem);
+                            }
+                        }
+                        else
+                        {
+                            if (Player.player.Inventory.ItemSetInFromUp(smallItem) == false)
+                            {
+                                Player.player.FastAccess.ItemSetInFromUp(smallItem);
+                            }
+                        }
                     }
                 }
             }
+            
         }
         else
         {

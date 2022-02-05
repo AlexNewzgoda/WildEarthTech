@@ -134,6 +134,7 @@ MonoBehaviour:
   StackSize: 1
   MaxStackSize: 100
   isUsability: 0
+  UITemplate: {fileID: 7591327233367780923, guid: 090dfe85c50045a4ea0e022a3f6a4cbe, type: 3}
   InventoryUp: {fileID: 8300000, guid: 24fd8dc23fbdf3d4697f2bb52a66a8db, type: 3}
   InventoryDown: {fileID: 8300000, guid: 28a12aca29159834c8e89883fb5e566b, type: 3}
   InventoryHit: {fileID: 8300000, guid: b1d91d9e5f741f54e9a540fdcfa176f7, type: 3}

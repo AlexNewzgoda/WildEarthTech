@@ -2,20 +2,19 @@
   "Jump": 32,
   "Run": 304,
   "Use": 101,
-  "MoveRight": 100,
   "MoveForward": 119,
   "MoveBack": 115,
-  "Crouch": 306,
   "MoveLeft": 97,
   "Inventory": 105,
   "Slot1": 49,
   "Slot2": 50,
-  "Sensitivity": 1,
   "Slot3": 51,
   "Slot4": 52,
   "Slot5": 53,
   "Slot6": 54,
   "Slot7": 55,
   "Slot8": 56,
-  "Slot9": 57
+  "Slot9": 57,
+  "Sensitivity": 1,
+  "Out": 27
 }

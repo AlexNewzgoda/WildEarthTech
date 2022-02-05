@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     public SmallInventory OtherInventory;
     public float RayLeight = 2;
 
+    public SmallToollItemActive itemActive;
+
     public Transform HandPose;
 
     public Animator animator;
@@ -36,13 +38,39 @@ public class Player : MonoBehaviour
             Inventory.gameObject.SetActive(true);
         }
 
-        _x = Mathf.Lerp(_x, Input.GetAxis("Mouse X"), Time.deltaTime * AnimBlendSpeed);
-        _y = Mathf.Lerp(_y, Input.GetAxis("Mouse Y"), Time.deltaTime * AnimBlendSpeed);
+        UpdateAnimate();
 
-        animator.SetFloat("x", _x);
-        animator.SetFloat("y", _y);
+        if (Input.GetKeyDown(InputSettings.key_Out))
+        {
+            if (CursorController.IsActive)
+            {
+                Inventory.gameObject.SetActive(false);
+                if(OtherInventory != null)
+                {
+                    OtherInventory.gameObject.SetActive(false);
+                    OtherInventory = null;
+                }
+            }
+        }
+        else
+        {
+
+        }
 
 
+    }
+
+    void UpdateAnimate()
+    {
+        if (CursorController.IsActive == false)
+        {
+            _x = Mathf.Lerp(_x, Input.GetAxis("Mouse X"), Time.deltaTime * AnimBlendSpeed);
+            _y = Mathf.Lerp(_y, Input.GetAxis("Mouse Y"), Time.deltaTime * AnimBlendSpeed);
+
+            animator.SetFloat("x", _x);
+            animator.SetFloat("y", _y);
+        }
+      
     }
 
     public void CloseOtherInventory()
@@ -53,4 +81,24 @@ public class Player : MonoBehaviour
             OtherInventory = null;
         }
     }
+
+    public void SetTool(GameObject tool)
+    {
+        SmallToollItemActive toolItemObj = null;
+        if(tool.TryGetComponent(out toolItemObj))
+        {
+            tool.transform.SetParent(HandPose);
+            tool.transform.SetPositionAndRotation(HandPose.position, HandPose.rotation);
+            itemActive = toolItemObj;  
+        }
+    }
+
+    public void RemoveTool()
+    {
+        if(itemActive!!= null)
+        Destroy(itemActive.gameObject);
+    }
+
+
 }
+

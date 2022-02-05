@@ -14,6 +14,9 @@ public class SmallItemObj : MonoBehaviour
     public int StackSize = 1;
     public int MaxStackSize = 100;
     public bool isUsability = false;
+    public GameObject UITemplate;
+
+    public SmallItemUI itemUI;
 
     public AudioClip InventoryUp;
     public AudioClip InventoryDown;

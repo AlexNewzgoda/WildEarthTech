@@ -55,7 +55,7 @@ ModelImporter:
       takeName: metarig|Hit
       internalID: 0
       firstFrame: 0
-      lastFrame: 33
+      lastFrame: 28.3
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -74,7 +74,21 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.3623188
+        functionName: Hit
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1a9b505eefff22749b9eff88d794df36, type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.5253623
+        functionName: Hit
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1a9b505eefff22749b9eff88d794df36, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

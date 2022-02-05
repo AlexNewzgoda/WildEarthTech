@@ -26,6 +26,7 @@ public class InputSettings : MonoBehaviour
     public static KeyCode key_Slot7 = KeyCode.Alpha7;
     public static KeyCode key_Slot8 = KeyCode.Alpha8;
     public static KeyCode key_Slot9 = KeyCode.Alpha9;
+    public static KeyCode key_Out = KeyCode.Escape;
     //KeysEnd
 
     //ValuesStart
@@ -158,6 +159,7 @@ public class InputSettings : MonoBehaviour
         key_Slot7 = GetKeyValue("Slot7", KeyCode.Alpha7, true);
         key_Slot8 = GetKeyValue("Slot8", KeyCode.Alpha8, true);
         key_Slot9 = GetKeyValue("Slot9", KeyCode.Alpha9, true);
+        key_Out = GetKeyValue("Out", KeyCode.Escape, true);
         //KeysEndLoad
 
         //ValuesStartLoad

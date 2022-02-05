@@ -29,7 +29,7 @@ public class InteractiveViever : MonoBehaviour
                 {
                     if(hit.transform.GetComponent<IsInteractable>() != null)
                     {
-                        if (Input.GetKeyDown(InputSettings.key_Use))
+                        if (Input.GetKeyDown(InputSettings.key_Use) && CursorController.IsActive == false)
                         {
                             hit.transform.GetComponent<IsInteractable>().OnAction();
                         }
@@ -53,7 +53,7 @@ public class InteractiveViever : MonoBehaviour
                         
                         Ghost.transform.position = target.transform.position;
                         Ghost.transform.rotation = target.transform.rotation;
-                        Ghost.transform.localScale = target.transform.localScale * 1.1f;
+                        Ghost.transform.localScale = target.transform.localScale;
                         Ghost.SetActive(true);
                     }
 
@@ -80,7 +80,7 @@ public class InteractiveViever : MonoBehaviour
         {
             Ghost.transform.position = target.transform.position;
             Ghost.transform.rotation = target.transform.rotation;
-            Ghost.transform.localScale = target.transform.localScale*1.1f;
+            Ghost.transform.localScale = target.transform.localScale;
         }
     }
 

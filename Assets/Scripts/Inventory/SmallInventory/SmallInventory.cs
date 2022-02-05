@@ -11,6 +11,8 @@ public class SmallInventory : MonoBehaviour
     public bool isActiveChange = true;
 
     public AudioSource audioSource;
+    public FAFrame frame;
+
     public void Awake()
     {
         smallItems = new SmallItemUI[itemSlots.Length];
@@ -25,6 +27,7 @@ public class SmallInventory : MonoBehaviour
         if (item.isStackable)
         {
             int itemleft = StackNewItem(item);
+
             if (itemleft > 0)
             {
                 if (CheckInventory())
@@ -34,15 +37,20 @@ public class SmallInventory : MonoBehaviour
                     SoundOnDown(su);
                     smallItems[GetFreePlace()] = su;
                     item.gameObject.SetActive(false);
-                    
-
+                    Resort();
                     return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
             else
             {
                 Destroy(item.gameObject);
+                return true;
             }
+            
         }
         else
         {
@@ -53,9 +61,14 @@ public class SmallInventory : MonoBehaviour
                 SoundOnUp(su);
                 Resort();
                 item.gameObject.SetActive(false);
+                if(frame != null)
+                {
+                    frame.UpdateEmptyToUse();
+                }
                 return true;
             }
         }
+
         return false;
     }
 
@@ -141,13 +154,13 @@ public class SmallInventory : MonoBehaviour
             {
                 return i;
             }
-
         }
         return -1;
     }
 
     int StackNewItem(SmallItemObj item)
     {
+
         for (int x = 0; x < smallItems.Length; x++)
         {
             SmallItemUI SU = smallItems[x];
@@ -155,25 +168,28 @@ public class SmallInventory : MonoBehaviour
             {
                 if (SU.Name == item.Name)
                 {
-                    
-                    if (SU.StackSize + item.StackSize < item.MaxStackSize)
+                    if (SU.StackSize + item.StackSize <= item.MaxStackSize)
                     {
+
                         SU.StackSize += item.StackSize;
+                        
                         Resort();
                         SoundOnUp(SU);
                         return 0;
+
                     }
-                    else
+                    if(SU.StackSize + item.StackSize > item.MaxStackSize)
                     {
                         int extra = SU.StackSize + item.StackSize - item.MaxStackSize;
                         SU.StackSize = SU.StackSize + item.StackSize - extra;
+                        item.StackSize = extra;
+                        Resort();
                         
-                        return extra;
                     }
                 }
-              
             }
         }
+
         return item.StackSize;
     }
     int StackNewItem(SmallItemUI item)
@@ -237,7 +253,6 @@ public class SmallInventory : MonoBehaviour
         }
         return false;
     }
-
     int GetFreePlace()
     {
         for (int i = 0; i < smallItems.Length; i++)
@@ -252,7 +267,8 @@ public class SmallInventory : MonoBehaviour
 
     SmallItemUI CreateNewItem(SmallItemObj item)
     {
-        GameObject pref = Instantiate(ItemUIPrefab, this.transform);
+        
+        GameObject pref = Instantiate(item.UITemplate, this.transform);
         SmallItemUI s_item = pref.GetComponent<SmallItemUI>();
         s_item.smallItemObj = item;
         s_item.image.sprite = item.icon;
@@ -265,13 +281,15 @@ public class SmallInventory : MonoBehaviour
         s_item.CurrentSmallInventory = this;
         s_item.InventoryUp = item.InventoryUp;
         s_item.InventoryDown = item.InventoryDown;
+        item.itemUI = s_item;
         return s_item;
     }
     SmallItemUI CreateNewItem(SmallItemUI item)
     {
-        GameObject pref = Instantiate(ItemUIPrefab, this.transform);
+        GameObject pref = Instantiate(item.smallItemObj.UITemplate, this.transform);
         SmallItemUI s_item = pref.GetComponent<SmallItemUI>();
         s_item.smallItemObj = Instantiate(item.smallItemObj);
+        s_item.smallItemObj.itemUI = s_item;
         s_item.image.sprite = item.image.sprite;
         s_item.Name = item.Name;
         s_item.Description = item.Description;
@@ -291,8 +309,10 @@ public class SmallInventory : MonoBehaviour
         {
             if(smallItems[i] != null)
             {
+                smallItems[i].gameObject.SetActive(false);
                 smallItems[i].transform.SetParent(itemSlots[i].transform);
                 smallItems[i].transform.position = itemSlots[i].transform.position;
+                smallItems[i].gameObject.SetActive(true);
 
                 if (smallItems[i].isStacable)
                 {
@@ -314,12 +334,14 @@ public class SmallInventory : MonoBehaviour
             if (smallItems[x] == item)
             {
                 SoundOnUp(smallItems[x]);
+
+                if(frame != null && frame.index == x)
+                smallItems[x].OnDeUse();
+
                 smallItems[x] = null;
                 
                 return x;
             }
-               
-            
         }
         return -1;
     }

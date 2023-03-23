@@ -74,7 +74,7 @@ public class EntityHelper : Editor
 
     public static bool IsPrefab (GameObject gameObject)
     {
-        return UnityEditor.Experimental.SceneManagement.PrefabStageUtility.GetPrefabStage(gameObject) != null || EditorUtility.IsPersistent(gameObject);
+        return UnityEditor.SceneManagement.PrefabStageUtility.GetPrefabStage(gameObject) != null || EditorUtility.IsPersistent(gameObject);
     }
 
     [MenuItem("Tools/Reset ID in prefabs")]
